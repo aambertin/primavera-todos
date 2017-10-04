@@ -1,0 +1,49 @@
+{
+  "name": "primavera-todos",
+  "description": "Showcase a simple TODO backend API with primavera."
+  "version": "0.0.0",
+  "author": "Anibal Ambertin <anibal@synergicsource.com> (http://www.synergicsource.com)",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/aambertin/primavera"
+  },
+  "private": false,
+  "scripts": {
+    "start": "node --require babel-register ./bin/www",
+    "prepack": "rm -Rf dist; mkdir dist; cp config/package.json dist",
+    "build": "babel src --presets babel-preset-es2015-node6,babel-preset-stage-3 --out-dir dist",
+    "dist": "npm run prepack; npm run build; cd dist; npm pack",
+    "prepublish": "npm run build",
+    "test": "mocha --require babel-register",
+    "primavera": "rm -Rf node_modules/primavera ; npm i primavera"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-plugin-transform-decorators": "^6.22.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-regenerator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.2.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2015-node6": "^0.4.0",
+    "babel-preset-es2016": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "babel-register": "^6.24.0",
+    "mocha": "^3.3.0",
+    "should": "^11.2.1"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "mongoose": "^4.11.13",
+    "mongoose-model-decorators": "^0.4.0",
+    "morgan": "~1.8.1",
+    "on-headers": "^1.0.1",
+    "primavera": "../Ambassadors/App/primavera/dist/primavera-1.0.2.tgz",
+    "shortid": "^2.2.8",
+    "uuid": "^3.1.0"
+  }
+}
